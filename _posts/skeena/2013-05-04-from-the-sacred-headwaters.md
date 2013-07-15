@@ -3,18 +3,20 @@ published: true
 layout: post
 category: Essay
 author: Wade Davis
-tags: ['story']
+tags: 
+  - story
 issue: Skeena
-toc-img: sacredheadwaters.jpg
-story-img: sacredheadwaters.jpg
-story-img-caption: Headwaters region photo by Gary Irving, Garyfoto.com.
+"toc-img": sacredheadwaters.jpg
+"story-img": sacredheadwaters.jpg
+"story-img-caption": "Headwaters region photo by Gary Irving, Garyfoto.com."
 latitude: 57.7716708373
 longitude: -129.830473272
-map-icon: map_essay_wht.png
+"map-icon": map_essay_wht.png
 ---
+
 {% include JB/setup %}
 
-_Editor’s note: Wade Davis’ piece here from his book_ The Sacred Headwaters _(Greystone and David Suzuki Foundation, 2011) centers around Ealue Lake, in the heart of the headwaters region that feeds the Stikine, Skeena, and Nass rivers and home to his longtime Native friends, Alex Jack and Oscar Dennis._
+_Editor’s note: Wade Davis’ piece here is from his book_ The Sacred Headwaters _(Greystone and David Suzuki Foundation, 2011) and centers around Ealue Lake, in the heart of the headwaters region that feeds the Stikine, Skeena, and Nass Rivers and home to his longtime Native friends, Alex Jack and Oscar Dennis._
 
 Oscar Dennis’s mother, Mary, once told me that the measure of a Tahltan was not the color of skin or the makeup of the blood but the manner in which a person treats the land. She shared this thought at a wake, as she and James buried a son. I think what Mary meant was that in a sense we all have a chance to be Tahltan, not by ethnicity or by co-opting a heritage that is so powerfully and uniquely theirs, but simply by expressing in spirit and commitment a loyalty to place.
 
