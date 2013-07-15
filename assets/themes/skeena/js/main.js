@@ -24,11 +24,34 @@ if (window.location.hash) {
 
 
     var mySwiper;
+    window.blockSlideChange=false;
 
-    window.onload = function() {
+    //window.onload = function() {
+    $('document').ready( function() {
         var $masthead = $('.masthead'),
-            hGalleryArray=new Array();
+            hGalleryArray=new Array(),
+            loadIntroImages = window.setTimeout(function () {postLoadImages($('div.swiper-slide'),'intro')},3000),
+            loadGalleryImages = window.setTimeout(function () {postLoadImages($('img.postload'),'gallery')},6000);
 
+            $('div.gallery-wrapper img[src*="contributor-headshots"]').addClass('img-circle').css({'float': 'left','margin-right': '5px','width': '75px'})
+                .parent().next().css({'font-size':'.8em', 'line-height': '1.3em'});
+
+            function postLoadImages ($theImages, which){
+                $theImages.each(function () {
+                    var $this=$(this),
+                    theSource=$this.data('img') || false;
+
+                    if (theSource)
+                        if (which=='gallery'){
+                            $this.attr('src', theSource);
+                        } else {
+                            $('<img />')[0].src = theSource;
+                        }
+                });
+
+            }
+
+            
 
         mySwiper = new Swiper('.swiper-root',{
             mode:'vertical',
@@ -39,11 +62,20 @@ if (window.location.hash) {
             grabCursor: true,
             onSlideChangeStart: function (swiper) {
                 var $slide = $(swiper.getSlide(swiper.realIndex));
-                // if ($slide.data('zoom')) {
-                //     map.zoom($slide.data('zoom'), true);
-                // } else {
-                //     map.zoom(zoom, true);
-                // }
+
+                if (!$slide.hasClass('marker-slide')) {
+                    //$('#map').children('div:last-child').removeClass('active-map');
+                    $('.swiper-root').addClass('no-touch-event');
+                    $('.legend, .leaflet-control-zoom, #map > .page-footer').addClass('hidden');
+
+                    $('.layer-on').each(function (i, layer) {
+                        map.removeLayer(currentLayers[$(layer).data('layer')]);
+                    });
+                    map.dragging.disable();
+                    map.touchZoom.disable();
+                    map.doubleClickZoom.disable();
+                    map.scrollWheelZoom.disable();
+                }
             },
             onSlideChangeEnd: function (swiper) {
                 var $slide = $(swiper.getSlide(swiper.realIndex)),
@@ -52,9 +84,14 @@ if (window.location.hash) {
                     $gallery = $slide.find('.gallery'),
                     backgroundImage = $slide.data('img'),
                     currentBackgroundPath = $('.swiper-root').css('background-image').split('/'),
-                    currentBackgroundImage = currentBackgroundPath[currentBackgroundPath.length-1].replace(')',''),
+                    //currentBackgroundImage = currentBackgroundPath[currentBackgroundPath.length-1].replace(')',''),
+                    currentBackgroundImage = $('.backstretch:last img',$('.swiper-root')).attr('src'),
+                    //subBackgroundImage = false,
+                    preserveBodyBackground = $slide.children('div.page.full').length,
                     childSliderID=$('.gallery',$slide).attr('id') || '',
-                    subSlideIsLight=undefined;
+                    subSlideIsLight=undefined,
+                    nextStoryName=$slide.next().attr('id') || false;
+
 
                 //set this slide to be 'active' for purposes of applying global keypress events
                 $('.swiper-root>.swiper-wrapper>div.swiper-slide').removeClass('active');
@@ -73,6 +110,7 @@ if (window.location.hash) {
                 //set the body class as light or dark to change nav and sidebar colors for different backgrounds
                 if (!(hGalleryArray[childSliderID]===undefined))     {          
                     subSlideIsLight=$('.swiper-slide',$slide).eq(hGalleryArray[childSliderID].activeSlide).hasClass('light');
+                    //subBackgroundImage=$('.swiper-slide',$slide).eq(hGalleryArray[childSliderID].activeSlide).data('img');
                 }
 
                 if ((($slide.find('div.page.light').length) && subSlideIsLight === undefined) || (subSlideIsLight)) {
@@ -82,13 +120,16 @@ if (window.location.hash) {
                 }
 
                 // update the background image
-                if (backgroundImage && currentBackgroundImage !== backgroundImage) {
-                    $('.swiper-root').backstretch(backgroundImage, {fade:450});
-                    
-                } else if (! backgroundImage) {
-                    $('.swiper-root').backstretch('{{BASE_PATH}}/assets/themes/skeena/img/cover.jpg', {fade:450});
-                    
+                if (backgroundImage && currentBackgroundImage !== backgroundImage && !preserveBodyBackground) {
+                    $('.swiper-root').backstretch(backgroundImage, {fade:450});                    
+                } else if (! backgroundImage && !preserveBodyBackground) {
+                    $('.swiper-root').children('.backstretch').remove();
+                }
 
+
+                // find the name of the next story and populate the div under the right nav arrow
+                if(nextStoryName) {
+                    $slide.find('.next-story-name').text(nextStoryName.split('-').join(' '));
                 }
                 if (swiper.activeIndex > 1){
                     $('#-zoom-7').parent().fadeOut("fast");
@@ -98,6 +139,24 @@ if (window.location.hash) {
 
                 // activate textify swiper
                 if ($longPost.length && ! $longPost.find('.textify').length) {
+
+                   var theImages=$('img',$longPost);
+
+                   $longPost.on('click','img',function () {
+                        var $theImage = theImages.filter('img[src="'+$(this).attr("src")+'"]'),
+                        $theBox=$('<div id="the-lightbox" style="width:100%"><div class="popover-close">close</div><div id="the-lightbox-content" style="margin-top:30px;width:100%;text-align:center;height:'+($(window).height()-150)+'px;"></div></div>');
+                        $theImage.css({'max-height':'100%','cursor':'pointer'});
+                        $theBox.find(":nth-child(2)").append($theImage).append('<div class="caption">'+$(this).attr("alt")+'</div>');
+                        //debugger;
+                       $theBox.lightbox_me({
+                            centered:false,
+                            destroyOnClose:true,
+                            modalCSS: {top: '0'},
+                            closeSelector:'.popover-close',
+                            overlayCSS:{background: 'white', opacity: .9}    
+                        });
+                   });
+
                     $longPost.textify({
                         numberOfColumn: 1,
                         width: "auto",
@@ -105,7 +164,11 @@ if (window.location.hash) {
                         height: "auto"//$longPost.height()
 
                     });
+
+  
+
                     $longPost.removeClass('hidden');
+                    //debugger;
                 }
 
                 // EDIT THIS FUNCTION TO MAKE THE SUB-TOC ITEMS ALL THE SAME HEIGHT
@@ -125,12 +188,14 @@ if (window.location.hash) {
                 //     $slide.next().removeClass('hidden');
                 // }
 
+
+                //activate the photo essay if there is one
                 if ($gallery.length) {
                     var theID=$gallery.attr('id'),
                         paginationClass='.'+theID+'-pagination';
 
-                // Add this new gallery object into an array for
-                // later access to the swiper methods
+                    // Add this new gallery object into an array for
+                    // later access to the swiper methods
                     if(!(theID in hGalleryArray)){
                     hGalleryArray[theID]= $gallery.swiper({
                         mode: 'horizontal',
@@ -148,6 +213,7 @@ if (window.location.hash) {
                             //(swiper.activeIndex==0 && $slideRoot.parent().hasClass("light")) ? $('body').addClass('dark') : $('body').removeClass('dark');
                             if (backgroundImage) {
                                 $slideRoot.backstretch(backgroundImage, {fade:450});
+                                if ($('.backstretch',$slideRoot).length>2) $('.backstretch:lt(1)').remove();
                             } else {
                                 $('.backstretch',$slideRoot).remove();
                             }
@@ -158,6 +224,15 @@ if (window.location.hash) {
                                 $('body').removeClass('dark');
                             }
 
+                            //check to see if this is the last slide
+                            if ((swiper.slides.length-1)==swiper.activeIndex){
+                                $('.swiper-slide.active').addClass('last-page');
+                            } else if (swiper.activeIndex==0) {
+                                $('.swiper-slide.active').addClass('first-page');
+                            }else {
+                                $('.swiper-slide.active').removeClass('last-page first-page');
+                            }
+
                             // initialize scroll buttons for voices content if overflowing
                             if ($voiceWrapper && (!($voiceWrapper.find('.voice-scroller').length))) {                                    
                                 if(($('.voice-content-text',$voiceWrapper).height())>($('.voice-content',$voiceWrapper).height())) {
@@ -166,13 +241,32 @@ if (window.location.hash) {
                             } //end voices bio scroll button init
                         } //end onSlideChangeEnd callback for horizontal slider                        
                     }); // end init array for main-slide-contained horizontal gallery
+                    
                     } // end if block checking for gallery object existance
-                } // end if block for gallery.length
+                } // end block checking if this slide contains a horizontal 
+
+
 
                 if ($slide.hasClass('marker-slide')) {
-                    map.addLayer(markerLayer);
+                    $('.legend, .leaflet-control-zoom, #map > .page-footer').removeClass('hidden');
+                    // map.addLayer(markerLayer);
+                    window.blockSlideChange=true;
+                    //$('#map').children('div:last-child').addClass('active-map');
+                    $('.swiper-root').addClass('no-touch-event');
+                    if (!($('#map').children('.page-footer').length)) {
+                        $('#map').append('<div class="page-footer"><a href="#"><i class="icon-chevron-down"></i></a></div>')
+                    }
+                    $('.layer-on').each(function (i, layer) {
+                        currentLayers[$(layer).data('layer')].addTo(map);
+                    });
+                    map.dragging.enable();
+                    map.touchZoom.enable();
+                    map.doubleClickZoom.enable();
+                    map.scrollWheelZoom.enable();
                 } else {
-                    map.removeLayer(markerLayer);
+                    // map.removeLayer(markerLayer);
+                    $('.swiper-root').removeClass('no-touch-event');
+                    window.blockSlideChange=false;
                 }
 
             }, // end on slideChangeEnd callback for main vertical slider
@@ -184,19 +278,25 @@ if (window.location.hash) {
             } //end scrollbar plugin parameter array
         });  //end init block for main vertical swiper         
         
+//Begin main event bindings
 
         // Activate left/right arrows that we've placed on top of all horizontally enabled slides
-        $('.navarrows a').on('click',function (e){
+        $('.navarrows a, .next-story').on('click',function (e){
             e.preventDefault();
             e.stopPropagation();
             var $hContainer=$(this).parentsUntil('div.swiper-slide','div.page').find('div.page-wrapper'),
                 isGallery=$hContainer.hasClass('gallery-wrapper'),
                 // yes, here theID may be a string, or it may be an object. sorry.
-                theID= isGallery ? $hContainer.find('.gallery').attr('id') : $hContainer.find('.text_pagination');
+                theID= isGallery ? $hContainer.find('.gallery').attr('id') : $hContainer.find('.text_pagination'),
+                $activeSlide = $('.swiper-slide.active');
+
+                if ($activeSlide.hasClass('last-page') && ($(this).hasClass("next-story") || $(this).hasClass("right-arrow"))) {
+                    mySwiper.swipeNext();
+                } 
 
                 if(isGallery){
                     //this is a swiper gallery.  simply use the built in swipeNext/swipePrev methods
-                    $(this).hasClass("rightarrow") ? hGalleryArray[theID].swipeNext() : hGalleryArray[theID].swipePrev();
+                    $(this).hasClass("right-arrow") ? hGalleryArray[theID].swipeNext() : hGalleryArray[theID].swipePrev();
                 } else { 
                     //this isn't a gallery -> must be a textify slide. update logic later if more slide types introduced
                     //we need to fire the click event on the next/previous hilited number
@@ -206,7 +306,7 @@ if (window.location.hash) {
                     theNavNumbers=$('li',theID);
 
                     //are we going right?
-                    if ($(this).hasClass("rightarrow")){ 
+                    if ($(this).hasClass("right-arrow") || $(this).hasClass("next-story")) { 
                         //can we go right?
                         if ((++theGalIndex)<theNavNumbers.length) {
                             theNavNumbers.eq(theGalIndex).click();
@@ -228,6 +328,31 @@ if (window.location.hash) {
             hGalleryArray[theID].swipeTo(theGalIndex);
         });
 
+        // nav to story from map
+        $('#map').on('click', '.leaflet-popup a', function (e) {
+            var $link = $(this);
+            e.preventDefault();
+            if ($link.hasClass('voices-link')) {
+                mySwiper.swipeTo($('#voices').index());
+                hGalleryArray['voices-gallery'].swipeTo($($link.data('story')).index());
+            } else {
+                mySwiper.swipeTo($($link.data('story')).index());
+            }
+        });
+
+        // This block used to be in slideChangeEnd for vertical slider.  see if we can delete it.
+        // //Bind swiping action to link click on map popups
+        // $('#map').on('click', '.leaflet-popup a', function (e) {
+        //     var $link = $(this);
+        //     e.preventDefault();
+        //     if ($link.hasClass('voices-link')) {
+        //         mySwiper.swipeTo($('#voices').index());
+        //     }
+        //     //debugger;
+        // });
+
+
+
         // Control the horizontal sliders using arrow keys
         $(document).on('keydown',function (e) {
             var kc = e.keyCode || e.charCode;
@@ -236,10 +361,11 @@ if (window.location.hash) {
                 e.stopPropagation();
             }
             if (kc == 39) {
-                $('a.rightarrow','.swiper-slide.active').click();
+                if(!$('.swiper-slide.active').hasClass('last-page'))
+                $('a.right-arrow','.swiper-slide.active').click();
             }
             if (kc == 37) {
-                $('a.leftarrow','.swiper-slide.active').click();
+                $('a.left-arrow','.swiper-slide.active').click();
             } 
         });
 
@@ -249,16 +375,61 @@ if (window.location.hash) {
 
             if(!($theNav.find('#x-of-y')).length){
                 $('ul.text_pagination',$theNav).css({'visibility': 'hidden','margin-bottom': '-100px'})
-                $theNav.prepend('<div id="x-of-y" style="text-align:center;position:absolute;bottom:0;width:100%"><span class="x">1</span> of <span class="y"></span></div>');
+                $theNav.prepend('<div id="x-of-y" style="text-align:center;position:absolute;bottom:0;width:100%"><span class="x intro">1</span> <span class="of">of</span> <span class="y intro"></span></div>');
             }
             $('span.y', $theNav).text(theMaxNumber);
         });
 
         $(document).on('textifyNavDone',function (e,$textify) {
             var $theNav=$('div.textify_nav',$textify),
-            theCurrentNumber=$('li.selected',$theNav).text();
+            theCurrentNumber=$('li.selected',$theNav).text(),
+            $images=$('.page'+theCurrentNumber+' img',$textify);
+
+            $images.each(function () {
+                var $this=$(this),
+                    theCaption=$this.attr('alt');
+
+                if (!$this.parent().find('span').length) {
+                    $this.parent().css('position','relative').prepend('<span class="caption">'+theCaption+'</span>').find('span').css('top',function () {
+                        var $that=$this;
+                    
+                        return ($that.height()-$(this).height())+$that.position().top;
+                    });
+                }
+            });
+
             $('span.x', $theNav).text(theCurrentNumber);
+            if ($('span.x', $theNav).text()==$('span.y', $theNav).text()) {
+                $('.swiper-slide.active').addClass('last-page');
+            } else if ($('span.x', $theNav).text()=='1') {
+                $('.swiper-slide.active').addClass('first-page');
+            } else {
+                $('.swiper-slide.active').removeClass('first-page last-page');
+            }
         });
+
+        
+//         $('.addthis_toolbox a').on('click',function (e) {
+//             e.preventDefault();
+//             var theURL=$(this).attr("href").replace(/ /g,'+').replace('#','%23');
+//             console.log(theURL);
+//             window.open (theURL,'Sharing is caring','height=400,width=600,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,directories=no,status=no')
+
+// //             var $theBox=$('<div id="the-lightbox" style="width:100%"><div class="popover-close">close</div><div id="the-lightbox-content" style="margin-top:30px;width:100%;text-align:center;height:'+($(window).height()-150)+'px;"><iframe id="foo" style="z-index: 1;border: none; margin: 0; padding: 0; position: absolute; width: 75%; height: 100%; top: 0; left: 0; filter: mask();"/></div></div>');
+
+// // debugger;
+
+// //             $theBox.find("#foo").attr('src',$(this).attr('href'));
+// //             //debugger;
+// //            $theBox.lightbox_me({
+// //                 centered:false,
+// //                 destroyOnClose:true,
+// //                 modalCSS: {top: '0'},
+// //                 closeSelector:'.popover-close',
+// //                 overlayCSS:{background: 'white', opacity: .9}    
+// //             });
+//        });
+
 
         // Control voices biography content with up/down arrows
         $('.voice-content-wrapper').on('click','span.up, span.down',function(e){
@@ -278,46 +449,36 @@ if (window.location.hash) {
         });
         
 
-
-
-        // manage hash changes
-        if (originalHash) {
-            mySwiper.swipeTo($(originalHash).index());    
-        }
-
-        function styleStoryLeadin ($theElement) {
-            var str=$(this).html(),
-            delimiter = ' ',
-            start = 0, end = 6,
-            first = str.split(delimiter).slice(start,end).join(delimiter),
-            last = str.split(delimiter).slice(end).join(delimiter),
-            result = "<span class='schoolbook'>"+first+"</span> "+last;
-            $(this).html(result);
-        }
-
-        // style body copy intros and outros
-        $('p:firstChild','div.page-content').each(styleStoryLeadin);
-        $('p:firstChild','div.gallery-intro-slide-wrapper').each(styleStoryLeadin);
-        $('p:firstChild','div.voice-content-text').each(styleStoryLeadin);
-
-
-        // init the audio player for voices
-        audiojs.events.ready(function() {
-            var as = audiojs.createAll();
-        });
         
-    }; //end window.onLoad event handler function
-
+ //   }; //end window.onLoad event handler function
+}); // end test document.ready wrapper
 
 
     $(document).ready(function () {
 
         var $title = $(".page-header").find('.title-name'),
-            //$toc = $("#toc"),
             $window = $(window),
             $popoverArray=new Array();
 
-///////////////////////////////////////
+            function styleStoryLeadin ($theElement,start,end) {
+                var str=$(this).html(),
+                delimiter = ' ',
+                start = start || 0, end = end || 5,
+                first = str.split(delimiter).slice(start,end).join(delimiter),
+                last = str.split(delimiter).slice(end).join(delimiter),
+                result = "<span class='schoolbook'>"+first+"</span> "+last;
+                $(this).html(result);
+            }
+
+            // style first five words of body copy with a span to change font to Schoolbook
+            $('p:firstChild','div.page-content').each(styleStoryLeadin);
+            $('p:firstChild','div.gallery-intro-slide-wrapper').each(styleStoryLeadin);
+            $('p:firstChild','div.voice-content-text').each(styleStoryLeadin);
+            $('p:firstChild','.about-content').each(styleStoryLeadin);
+
+
+
+/////////////////////////////////////// Initialize menu items and click-to-swipe navigation
 
 
         $('a', 'ul.nav').each(function(){
@@ -340,128 +501,78 @@ if (window.location.hash) {
                         tocHeight,
                         $this=$(this);
                     e.preventDefault();
+                    //disappear all popovers that are not linked to the clicked item
+                    $('a','ul.nav').not('#'+theID).popover('hide');
+                    //toggle popover for the clicked item
+                    $this.popover('toggle');
 
-                    $this.popover('show');
+                    //set some heights, based on content
                     $popover = $('.toc-section').find('.popover');
+                    $popover.addClass('ink-bg');
                     tocHeight = $popover.closest('.toc-section').height();
                     $popover.find('.popover-content').height($popover.closest('.section').height() - tocHeight);
-                    //console.log($popover.closest('.section').height() - tocHeight);
                     $popover.find('.arrow').position({
                        of: $this,
                        my: 'bottom center',
                        at: 'bottom'
                     });
-                    // equalize the heights of titles in each row
-                    $('.popover-content .row').each(function () {
-                        var currentTallest = 0;
-                        $('h3.story-title',$(this)).each(function () {                    
+
+
+                    // equalize the heights of titles in each row for the TOC item
+                    var currentTallest = 0;
+                        $('.popover-content h3.story-title').each(function () {                    
                                 if ($(this).height() > currentTallest) { currentTallest = $(this).height(); }
                             });
-                            //if (!px && Number.prototype.pxToEm) currentTallest = currentTallest.pxToEm(); //use ems unless px is specified
-                            // for ie6, set height since min-height isn't supported
-                            if ($.browser.msie && $.browser.version == 6.0) { $(this).children().css({'height': currentTallest}); }
-                            $('h3.story-title',$(this)).css({'min-height': currentTallest});
-                    }); // end .each iteration of content row items to set each to same height
+                        //if (!px && Number.prototype.pxToEm) currentTallest = currentTallest.pxToEm(); //use ems unless px is specified
+                        // for ie6, set height since min-height isn't supported
+                        if ($.browser.msie && $.browser.version == 6.0) { $(this).children().css({'height': currentTallest}); }
+                        $('.popover-content h3.story-title').css({'min-height': currentTallest});
 
-                    $('.toc-close','.popover').click(function () {
+                    
+                    // wire up the close "X" button
+                    $('.popover-close','.popover').click(function () {
                         $this.popover('hide');
                     });
 
-                }); // end onclick binding
-            }//end block -> if this anchor has an ID attached to it
+                }); // end onclick binding for top menu items
+            } //end block -> if this anchor has an ID attached to it
         }); //end function to initialize all menu items
 
 
-        // $toc.popover({
-        //     placement: "bottom",
-        //     trigger: "manual",
-        //     container: ".toc-section",
-        //     animation: "false",
-        //     html: true,
-        //     content: $('#toc-content').html()
-        // });
+        // swipe back to the top, when clicking on "COMMONPLACE" in the header
+        $('.nav h2').on('click', function (e) {
+            mySwiper.swipeTo(1);
+        });
 
-        // $toc.on('click mouseenter', function (e) {
-        //     var $popover, tocHeight;
-        //     e.preventDefault();
-        //     $toc.popover('toggle');
-        //     $popover = $('.toc-section').find('.popover');
-        //     tocHeight = $popover.closest('.toc-section').height();
-        //     $popover.find('.popover-content').height($popover.closest('.section').height() - tocHeight);
-        //     //console.log($popover.closest('.section').height() - tocHeight);
-        //     $popover.find('.arrow').position({
-        //        of: $toc,
-        //        my: 'bottom center',
-        //        at: 'bottom'
-        //     });
-        //     // equalize the heights of titles in each row
-        //     $('.popover-content .row').each(function () {
-        //         var currentTallest = 0;
-        //         $('h3.story-title',$(this)).each(function () {                    
-        //                 if ($(this).height() > currentTallest) { currentTallest = $(this).height(); }
-        //             });
-        //             //if (!px && Number.prototype.pxToEm) currentTallest = currentTallest.pxToEm(); //use ems unless px is specified
-        //             // for ie6, set height since min-height isn't supported
-        //             if ($.browser.msie && $.browser.version == 6.0) { $(this).children().css({'height': currentTallest}); }
-        //             $('h3.story-title',$(this)).css({'min-height': currentTallest});
-        //     });
+        
 
-        // }); // end TOC click functino
-
-/////////////////////////////////////
-
+        // swipe to the story when you click on the icon in the TOC
         $(document).on('click', '.story', function (e) {
             e.preventDefault();
-            mySwiper.swipeTo($($(this).data('story')).index());
-            $toc.popover('hide');
+            $('#toc').popover('hide');
+           mySwiper.swipeTo($($(this).data('story')).index());
         }); // end scroll to clicked story binding
 
-        $('.page-footer').on('click', function () {
-            // var nextSlide = mySwiper.realIndex + 1;
-            // if (nextSlide === mySwiper.slides.length) {
-            //     mySwiper.swipeTo(0);
-            // } else {
-            //     mySwiper.swipeTo(mySwiper.realIndex);    
-            // }
-            mySwiper.swipeNext();
-            
+
+        $('.photo-info').on('click',function () {$(this).toggleClass('visible');});
+
+        //swipe to the next slide when clicking on the yellow arrow at the page footer
+        $('#map').on('click','.page-footer', function () {
+            mySwiper.swipeNext();            
         }); // end page footer scroll to next page click binding
+
+
+        // manage hash changes
+        if (originalHash) {
+            mySwiper.swipeTo($(originalHash).index());    
+        }
+
+        // init the audio player for voices
+        audiojs.events.ready(function() {
+            var as = audiojs.createAll();
+        });
+
     }); //end document.ready function
-
-    var layer = new MM.TemplatedLayer('http://tilestream.apps.ecotrust.org/v2/commonplace/{Z}/{X}/{Y}.png');
-
-    var center = {
-        lat:54,
-        lon: -130
-    };
-    var zoom = 7;
-
-    // Create a map
-    window.map = mapbox.map('map', layer, null, []);
-    map.centerzoom(center, zoom);
-
-    var places = {
-        "Terrace, BC": [-128.5997, 54.5165],
-        "Kitmaat Village, BC": [-128.55, 53.9],
-        "Hartley Bay, BC": [-129.2500,53.4333]
-    }
-
-    window.markerLayer = mapbox.markers.layer().features([{
-           "geometry": { "type": "Point", "coordinates": places['Terrace, BC']},
-           "properties": { "image": "map_voice_wht.png" }
-       },{
-           "geometry": { "type": "Point", "coordinates": places['Kitmaat Village, BC']},
-           "properties": { "image": "map_voice_wht_90.png" }
-       },{
-           "geometry": { "type": "Point", "coordinates": places['Hartley Bay, BC']},
-           "properties": { "image": "map_voice_wht_180.png" }
-       }]).factory(function(f) {
-           var img = document.createElement('img');
-           img.className = 'marker-image';
-           img.setAttribute('src', '{{BASE_PATH}}/assets/themes/skeena/img/map/' + f.properties.image);
-           return img;
-       });
-
     
 
 })(); //end generic wrapper function
