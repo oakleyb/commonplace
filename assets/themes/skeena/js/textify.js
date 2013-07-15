@@ -20,7 +20,7 @@
             width: "screen",
             height: "screen",
             showNavigation: true,
-            textAlign: 'justify',
+            textAlign: 'left',
             isZoom: false
         }
         var myVar;
@@ -148,10 +148,10 @@
                         })
                     }
                 } else {
-                    if (element.height >= columnHeight - 100) {
+                    if (element.height >= columnHeight - 150) {
                         thisImg.css({
                             'display': 'block',
-                            'height': columnHeight - 100,
+                            'height': columnHeight - 150,
                             'margin': 0,
                             'padding': 0
                             
@@ -414,7 +414,8 @@
                         })
                     }
                     columnHeight = pageheight - (options.padding * 2) - $('.textify_nav')
-                        .outerHeight()
+                        .outerHeight(false) //added the 'false' here from codecanyon discussion by <histerico> at
+                                            //http://codecanyon.net/item/textify-columnize-and-paginate-your-long-text/discussion/3109307?page=1
 
                 }
                 if ($page.children()
