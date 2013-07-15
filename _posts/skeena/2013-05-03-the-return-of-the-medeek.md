@@ -3,22 +3,24 @@ published: true
 layout: post
 category: Feature
 author: Terry Glavin
-tags: ['story']
+tags: 
+  - story
 issue: Skeena
-toc-img: medeek_a.jpg
-story-img: medeek_a.jpg
-story-img-caption: Grizzly and cub near Stuart Lake, by Neil Ever Osborne.
-latitude: 55.138585045399999
+"toc-img": medeek_a.jpg
+"story-img": medeek_a.jpg
+"story-img-caption": "Grizzly and cub near Stuart Lake, by Neil Ever Osborne."
+latitude: 55.1385850454
 longitude: -127.579004799
-map-icon: map_essay_wht.png
+"map-icon": map_essay_wht.png
 ---
+
 {% include JB/setup %}
 
 *I. The Mountain Goats Invite the People to a Feast*
 
 You can tell you’ve been closing in on the epicenter of Dimlahamid by the gradual ubiquity of hemlock and cedar along the main Yellowhead Highway as it unfurls westward through British Columbia, and by the snowy peaks of the looming mountains and the fireweed on the hillsides. You will swear you can smell the scent of salt air even though you’ve still got another three and a half hours to go before you’re at the coast. Everything is immediately and strangely discernible. You’re suddenly in the very middle of something very old and quiet, and at the edge of something very big and loud.
 
-The roar of Hagwilget Canyon tells you that you are leaving the vast ranges of the Athapaskan language families, which reach all the way back to Hudson Bay, with linguistic cousins down among the Navajo and the Apache. These are the mountains and valleys of the people who call themselves Gitxsan, and they speak Gitxanimaax, which is the furthest upriver extent of several Tsimshian-related languages in a saltwater complex of tongues arising from Northern California and reaching all the way to Southeast Alaska. This is also where the old Roman Catholic influences of the continent begin to most noticeably bleed away into the Protestant missionary dominance of the coast that lies ahead. The Bulkley River boils through the canyon below you, emptying itself into the Skeena River just downstream, and up in the clouds above you is Mount Roche de Boule, which is Stegyawden.
+The roar of Hagwilget Canyon tells you that you are leaving the vast ranges of the Athapaskan language families, which reach all the way back to Hudson Bay, with linguistic cousins down among the Navajo and the Apache. These are the mountains and valleys of the people who call themselves Gitxsan, and they speak Gitxanimaax, which is the furthest upriver extent of several Tsimshian-related languages in a saltwater complex of tongues arising from northern California and reaching all the way to southeast Alaska. This is also where the old Roman Catholic influences of the continent begin to most noticeably bleed away into the Protestant missionary dominance of the coast that lies ahead. The Bulkley River boils through the canyon below you, emptying itself into the Skeena River just downstream, and up in the clouds above you is Mount Roche de Boule, which is Stegyawden.
 
 By the time you’ve reached the little constellation of communities the locals today call the Hazeltons—New Hazelton, South Hazelton, Two Mile, Gitanmaax, Hagwilget, Old Town—everything gets impossibly jumbled and ragged. But this is also where everything starts to make perfect sense. This is where Dimlahamid was. They say it was like a vast city, a place that covered so much ground that a flock of geese could not traverse it without falling from the sky. Dimlahamid is where the world ends. Dimlahamid is where the world renews itself all over again.
 
@@ -28,7 +30,7 @@ Dimlahamid is where the story begins.
 
 Up there in the peaks of Stegyawden, who knows how long ago, mountain goats once took the form of men. They invited the people of Dimlahamid to a great feast. It was a ruse to prepare for the avenging of an injustice that had been done to them by a group of young hunters years before. When everyone had settled down to the feast, a great one-horned goat appeared. The story ends with heaps of bodies at the foot of Stegyawden.
 
-It’s a complicated story involving sacrilege and cruelty, but the thing to keep your eye on is that one young man was spared by the one-horned goat chief, and this man had been a boy when he’d spared the goat chief from slaughter years before. He’d marked the goat by rubbing its head in red ocher; that’s how he could tell it was the same goat. The moral of the story could be put this way: You do not want to mess with this place.
+It’s a complicated story involving sacrilege and cruelty, but the thing to keep your eye on is that one young man was spared by the one-horned goat chief, and this man had been a boy when he’d spared the goat chief from slaughter years before. He’d marked the goat by rubbing its head in red ocher; that’s how he could tell it was the same goat. The moral of the story could be put this way: you do not want to mess with this place.
 
 Pull in at a New Hazelton truck stop, and you can hear it in people’s voices. It’s the same back in Smithers as it is down at Prince Rupert. Ask about the place. People will start talking about the mountains, the salmon, or the forests, and right away in their voices you will notice a kind of inflection, something along the spectrum running from reverence to pride to melancholy. It’s not what you would call environmentalism. It’s gone beyond that now. Among the far-flung descendants of the people of Dimlahamid, so it is too now among the people who have only lately come to call the Skeena Country their home. White people are very much a part of it now. They’re not just *umshewa*, driftwood, anymore.
 
