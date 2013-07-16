@@ -2,20 +2,22 @@
 published: true
 layout: post
 category: Essay
-author: Jim Norton 
-tags: ['story']
+author: Jim Norton
+tags: 
+  - story
 issue: Skeena
-toc-img: epilogue.jpg
-story-img: epilogue.jpg
-story-img-caption: Ship off the BC coast, by Neil Ever Osborne.
+"toc-img": epilogue.jpg
+"story-img": epilogue.jpg
+"story-img-caption": "Ship off the BC coast, by Neil Ever Osborne."
 ---
+
 {% include JB/setup %}
 
 At a recent conference in Smithers, people gathered from throughout the watershed and the region to discuss various issues related to salmon and steelhead habitat in the Skeena. Speakers from government, advocacy, First Nations, and scientific communities shared elements of their experience with subjects as diverse as salmon life history, constitutional case law, and the effects of climate change on water flows. Visuals included a chart titled “Defining Salmon Biodiversity” showing thirty-two ecotypic zones with distinct borders and coloration, hosting special populations of “conservation units.” And one participant walked us through a new ecosystem-based management handbook, a detailed template for conservation inspired by recent success in securing protections for the Great Bear Rainforest. 
 
 Each presentation distilled specific expertise and expressed a commitment to applying it on behalf of salmon. Collectively, the information reflected our considerable interest in the Skeena and the sophistication of the tools and process by which we seek to understand it.
 
-The breadth and depth of existing knowledge about salmon is impressive. The extent of ongoing research and inquiry is encouraging. We have learned a lot about the fish themselves—their life cycles and life histories, who they are and what they do and what they need and where they go. And we have a seemingly ever-increasing appreciation for their extraordinary diversity, how they have evolved to express many different traits and behaviors, and how these physical and behavioral characteristics are manifestations of the diverse aquatic and terrestrial environments with which they interact. As examples of ecological reciprocity, salmon have no equal; they are a part of the Skeena, and the Skeena is a part of them.
+The breadth and depth of existing knowledge about salmon is impressive. The extent of ongoing research and inquiry is encouraging. We have learned a lot about the fish themselves—their life cycles and life histories, who they are and what they do, and what they need and where they go. And we have a seemingly ever-increasing appreciation for their extraordinary diversity, how they have evolved to express many different traits and behaviors, and how these physical and behavioral characteristics are manifestations of the diverse aquatic and terrestrial environments with which they interact. As examples of ecological reciprocity, salmon have no equal; they are a part of the Skeena, and the Skeena is a part of them.
 
 In addition to the data itself, research has given us new methodologies and technologies with which to monitor conditions, observe juvenile out-migrations, estimate adult returns, and enumerate many different elements of our environment. The capacity to examine these local variables is helping us consider not only the nature and intensity of changes to conditions in the Skeena but also their connection to significant climate-related effects and other extraregional and global phenomena. Not surprisingly, organizing the vast quantities of data collected by limnologists, biologists, hydrologists, climatologists, ecologists, and countless other specialists is proving as complicated as the environment itself. 
  
