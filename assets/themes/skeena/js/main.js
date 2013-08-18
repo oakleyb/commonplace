@@ -386,10 +386,10 @@ if (window.location.hash) {
         
     
         // Control the horizontal sliders with click functions
-        $('.gallery-wrapper').on('click touchstart','.sub-toc-item,.swiper-pagination-switch',function(e){
+        $('.gallery-wrapper').on('click touchstart','.sub-toc-item a,.swiper-pagination-switch',function(e){
             e.preventDefault();
             var theID=$(this).parentsUntil('.page.full').find('.swiper-container').attr('id'),
-                theGalIndex = $(this).hasClass('sub-toc-item') ? $(this).index()+1 : $(this).index();
+                theGalIndex = $(this).closest('div').hasClass('sub-toc-item') ? $(this).closest('div').index()+1 : $(this).index();
             hGalleryArray[theID].swipeTo(theGalIndex);
         });
 

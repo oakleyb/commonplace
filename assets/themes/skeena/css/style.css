@@ -1017,7 +1017,9 @@ div.next-story {display:none; text-align: center;padding-right:15px;}
   -o-transition: background .3s ease;
   transition: background .3s ease;
 }
-
+.sub-toc-item a{
+  color: rgb(51,51,51);
+}
 .sub-toc-item:last-child {border:none;}
 
 .no-touch .sub-toc-item:hover {

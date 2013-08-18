@@ -442,10 +442,12 @@ tagline: Supporting tagline
                           <div class="sub-toc-wrapper gallery-slide">
                           {% for post in site.tags.voices reversed %}
                             <div class="sub-toc-item" style="width:19%;">
-                              <img src="{{ASSET_PATH}}skeena/img/Voices Headshots/thumbs/{{ post.toc-img}}">
-                              <p class="author">{{ post.author }}</p>
-                              <p class="place">{{ post.place }}</p>
-                              <p class="voice-intro">{{ post.intro }}</p>
+                              <a>
+                                <img src="{{ASSET_PATH}}skeena/img/Voices Headshots/thumbs/{{ post.toc-img}}">
+                                <p class="author">{{ post.author }}</p>
+                                <p class="place">{{ post.place }}</p>
+                                <p class="voice-intro">{{ post.intro }}</p>
+                              </a>
                             </div>
                           {% endfor %}
                         </div>

@@ -18,11 +18,7 @@
 
         <!-- Check for Mobile Client -->
         <script type="text/javascript">
-            var width = window.innerWidth;
-            var height = window.innerHeight;
-            var orientation = window.innerHeight > window.innerWidth ? 'portrait': 'landscape';
-            if (width < 641  ||height < 641) {
-                //window.location.href = "/mobile/mobile";
+            if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                 window.location = "{{BASE_PATH}}/mobile.html";
             }
         </script>
