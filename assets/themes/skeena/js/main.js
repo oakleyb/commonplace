@@ -292,12 +292,17 @@ if (window.location.hash) {
 
                 if ($slide.hasClass('marker-slide')) {
                     $('.legend, .leaflet-control-zoom, #map > .page-footer').removeClass('hidden');
+                    $('.legend, .leaflet-control-zoom, #map > .page-footer').addClass('map-arrow');
+                    
                     // map.addLayer(markerLayer);
                     window.blockSlideChange=true;
                     //$('#map').children('div:last-child').addClass('active-map');
                     $('.swiper-root').addClass('no-touch-event');
-                    if (!($('#map').children('.page-footer').length)) {
-                        $('#map').append('<div class="page-footer"><a href="#"><i class="icon-chevron-down"></i></a></div>')
+                    if (!($('#skeena-map').children('.page-footer').length)) {
+                        $('#skeena-map').append('<div class="page-footer map-arrow"><a href="#"><i class="icon-chevron-down"></i></a></div>')
+                        $('.map-arrow').on('click touchstart', function () {
+                            mySwiper.swipeNext();            
+                        }); // end page footer scroll to next page click binding
                     }
                     $('.layer-on').each(function (i, layer) {
                         currentLayers[$(layer).data('layer')].addTo(map);
@@ -599,9 +604,10 @@ if (window.location.hash) {
         $('.photo-info').on('click touchstart',function () {$(this).toggleClass('visible');});
 
         //swipe to the next slide when clicking on the yellow arrow at the page footer
-        $('#map').on('click touchstart','.page-footer', function () {
+        $('.page-footer').on('click touchstart', function () {
             mySwiper.swipeNext();            
         }); // end page footer scroll to next page click binding
+
 
 
         // manage hash changes

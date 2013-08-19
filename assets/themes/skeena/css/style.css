@@ -1260,7 +1260,7 @@ div.next-story {display:none; text-align: center;padding-right:15px;}
   font-size:1em;
 }
 
-.leaflet-map-pane .page-footer {z-index: 100;}
+.leaflet-control-container,.leaflet-control-container > div,  .map-arrow, .leaflet-map-pane .page-footer {z-index: 2005;}
 
 .addthis_toolbox {
   margin-bottom:13px;
