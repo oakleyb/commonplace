@@ -733,9 +733,11 @@ div[data-hash=welcome] .contentText div:last-child div.column>p:last-child:after
 }
 
 body.dark .sidebar-header {
-  color:black;
+  color:black !important;
   border-color: black;
 }
+
+
 .sidebar-header p.title {
   font-size: 1.2em;
   font-family: Intro-Black-Caps;
