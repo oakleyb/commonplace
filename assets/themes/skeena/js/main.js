@@ -292,23 +292,21 @@ if (window.location.hash) {
 
                 if ($slide.hasClass('marker-slide')) {
                     $('.legend, .leaflet-control-zoom, #map > .page-footer').removeClass('hidden');
-                    $('.legend, .leaflet-control-zoom, #map > .page-footer').addClass('map-arrow');
                     
                     // map.addLayer(markerLayer);
                     window.blockSlideChange=true;
                     //$('#map').children('div:last-child').addClass('active-map');
                     $('.swiper-root').addClass('no-touch-event');
 
-                    if (!($('#map').children('.page-footer').length && ! ($.browser.msie && $.browser.version >= 10))) {
-                        console.log('windows')
+                    if (!($('#map').children('.page-footer').length && ($.browser.msie && $.browser.version >= 10))) {
                         $('#map').append('<div class="map-arrow page-footer"><a href="#"><i class="icon-chevron-down"></i></a></div>')
                         $('.map-arrow').on('click touchstart', function (e) {
+                            console.log('swipe');
                             e.preventDefault();
                             mySwiper.swipeNext();            
                         }); // end page footer scroll to next page click binding
-                    } else if (!($('#skeena-map').children('.page-footer').length)) {
+                    } else if (!($('#skeena-map').children('.page-footer').length && ! ($.browser.msie && $.browser.version >= 10))) {
                         $('#skeena-map').append('<div class="page-footer map-arrow"><a href="#"><i class="icon-chevron-down"></i></a></div>')
-                        console.log('chrome');
                         $('.map-arrow').on('click touchstart', function (e) {
                             e.preventDefault();
                             mySwiper.swipeNext();            
