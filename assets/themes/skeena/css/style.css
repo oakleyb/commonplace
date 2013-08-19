@@ -987,12 +987,12 @@ div.next-story {display:none; text-align: center;padding-right:15px;}
 
 @media (max-height: 700px) {
   .gallery-intro-slide-wrapper {
-    margin-left: -16%;
-    width: 38%;
+    margin-left: -26%;
+    width: 52%;
     margin-top: 4%;
   }
   .page.full .page-wrapper {
-    padding-top:100px;
+    padding-top:135px;
   }
 
   .story-header {
