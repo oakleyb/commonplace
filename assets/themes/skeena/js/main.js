@@ -298,9 +298,19 @@ if (window.location.hash) {
                     window.blockSlideChange=true;
                     //$('#map').children('div:last-child').addClass('active-map');
                     $('.swiper-root').addClass('no-touch-event');
-                    if (!($('#skeena-map').children('.page-footer').length)) {
+
+                    if (!($('#map').children('.page-footer').length && ! ($.browser.msie && $.browser.version >= 10))) {
+                        console.log('windows')
+                        $('#map').append('<div class="map-arrow page-footer"><a href="#"><i class="icon-chevron-down"></i></a></div>')
+                        $('.map-arrow').on('click touchstart', function (e) {
+                            e.preventDefault();
+                            mySwiper.swipeNext();            
+                        }); // end page footer scroll to next page click binding
+                    } else if (!($('#skeena-map').children('.page-footer').length)) {
                         $('#skeena-map').append('<div class="page-footer map-arrow"><a href="#"><i class="icon-chevron-down"></i></a></div>')
-                        $('.map-arrow').on('click touchstart', function () {
+                        console.log('chrome');
+                        $('.map-arrow').on('click touchstart', function (e) {
+                            e.preventDefault();
                             mySwiper.swipeNext();            
                         }); // end page footer scroll to next page click binding
                     }
