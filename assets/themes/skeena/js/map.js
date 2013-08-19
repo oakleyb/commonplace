@@ -1,11 +1,3 @@
-var layers, layer_wide, currentLayers;
-var center = {
-    lat: 55,
-    lon: -128
-};
-var zoom = 7;
-
-var shownPopup;
 
 setTimeout(function () {
 
@@ -58,7 +50,7 @@ setTimeout(function () {
         }
     }
 
-    var voicesLayer = L.geoJson(voices, {
+    voicesLayer = L.geoJson(voices, {
         pointToLayer: function(feature, latlng) {
             var image = feature.properties.image;
             if (image === '') {
@@ -75,7 +67,7 @@ setTimeout(function () {
         },
         onEachFeature: onEachFeature
     });
-    var voicesLayer_wide = L.geoJson(voices_wide, {
+    voicesLayer_wide = L.geoJson(voices_wide, {
         pointToLayer: function(feature, latlng) {
             var image = feature.properties.image;
             if (image === '') {
@@ -93,7 +85,7 @@ setTimeout(function () {
         onEachFeature: onEachFeature_wide
     });
 
-    var imageLayer = L.geoJson(images, {
+    imageLayer = L.geoJson(images, {
         pointToLayer: function(feature, latlng) {
             var image = feature.properties.image;
             if (image === '') {
@@ -111,7 +103,7 @@ setTimeout(function () {
     });
 
 
-    var essayLayer = L.geoJson(essays, {
+    essayLayer = L.geoJson(essays, {
         pointToLayer: function(feature, latlng) {
             var image = feature.properties.image;
             if (image === '') {
