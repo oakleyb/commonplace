@@ -5,6 +5,8 @@ var center = {
 };
 var zoom = 7;
 
+var shownPopup;
+
 setTimeout(function () {
 
     // Create a map
@@ -18,7 +20,7 @@ setTimeout(function () {
         ]
     });
 
-    var shownPopup;
+    
 
     map.dragging.disable();
     map.touchZoom.disable();
