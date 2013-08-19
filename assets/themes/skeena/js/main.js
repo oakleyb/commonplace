@@ -170,7 +170,7 @@ if (window.location.hash) {
                    var theImages=$('img:not([src*="contributor-headshots"])',$longPost);
 
 
-                   $('img',$longPost).on('click',function () {
+                   $('img',$longPost).on('click touchstart',function () {
                         var $theImage = theImages.filter('img[src="'+$(this).attr("src")+'"]'),
                         $theBox=$('<div id="the-lightbox" style="width:100%"><div class="popover-close">close</div><div id="the-lightbox-content" style="margin-top:30px;width:100%;text-align:center;height:'+($(window).height()-150)+'px;"></div></div>');
                         $theImage.css({'max-height':'100%','cursor':'pointer'});
@@ -284,6 +284,7 @@ if (window.location.hash) {
                     }); // end init array for main-slide-contained horizontal gallery
                     
                     } // end if block checking for gallery object existance
+                    $('.swiper-pagination-switch').append('<span class="pagination-dot"></span>');
                     $(document).trigger('galleryBuilt');
                 } // end block checking if this slide contains a horizontal 
 
@@ -382,16 +383,20 @@ if (window.location.hash) {
                 } // end logc blocks for gallery vs textified slide
         }); // end function for nav arrow click handling
 
+        
+    
         // Control the horizontal sliders with click functions
-        $('.gallery-wrapper').on('click','.sub-toc-item,.swiper-pagination-switch',function(e){
+        $('.gallery-wrapper').on('click touchstart','.sub-toc-item a,.swiper-pagination-switch',function(e){
             e.preventDefault();
             var theID=$(this).parentsUntil('.page.full').find('.swiper-container').attr('id'),
-                theGalIndex = $(this).hasClass('sub-toc-item') ? $(this).index()+1 : $(this).index();
+                theGalIndex = $(this).closest('div').hasClass('sub-toc-item') ? $(this).closest('div').index()+1 : $(this).index();
             hGalleryArray[theID].swipeTo(theGalIndex);
         });
 
+
+
         // nav to story from map
-        $('#map').on('click', '.leaflet-popup a', function (e) {
+        $('#map').on('click touchstart', '.leaflet-popup a', function (e) {
             var $link = $(this);
             e.preventDefault();
             if ($link.hasClass('voices-link')) {
@@ -454,7 +459,7 @@ if (window.location.hash) {
 
 
         // Control voices biography content with up/down arrows
-        $('.voice-content-wrapper').on('click','span.up, span.down',function(e){
+        $('.voice-content-wrapper').on('click touchstart','span.up, span.down',function(e){
             e.preventDefault();
             var $this=$(this),
                 scrollDown=$this.hasClass('down') ? true : false,
@@ -492,6 +497,7 @@ if (window.location.hash) {
                 $(this).html(result);
             }
 
+
             // style first five words of body copy with a span to change font to Schoolbook
             $('p:firstChild','div.page-content').each(styleStoryLeadin);
             $('p:firstChild','div.gallery-intro-slide-wrapper').each(styleStoryLeadin);
@@ -526,7 +532,7 @@ if (window.location.hash) {
                 });
 
 
-                $popoverArray[theID].on('click', function (e) {
+                $popoverArray[theID].on('click touchstart', function (e) {
                     var $popover,
                         tocHeight,
                         $this=$(this);
@@ -560,7 +566,7 @@ if (window.location.hash) {
 
                     
                     // wire up the close "X" button
-                    $('.popover-close','.popover').click(function () {
+                    $('.popover').on('click touchstart','.popover-close', function () {
                         $this.popover('hide');
                     });
 
@@ -570,7 +576,7 @@ if (window.location.hash) {
 
 
         // swipe back to the top, when clicking on "COMMONPLACE" in the header
-        $('.nav h2').on('click', function (e) {
+        $('.nav h2').on('click  touchstart', function (e) {
             $('a','ul.nav').popover('hide');
             mySwiper.swipeTo(1);
         });
@@ -578,17 +584,18 @@ if (window.location.hash) {
         
 
         // swipe to the story when you click on the icon in the TOC
-        $(document).on('click', '.story', function (e) {
+        $(document).on('click touchend', '.story', function (e) {
+
             e.preventDefault();
             $('#toc,#connect').popover('hide');
            mySwiper.swipeTo($($(this).data('story')).index());
         }); // end scroll to clicked story binding
 
 
-        $('.photo-info').on('click',function () {$(this).toggleClass('visible');});
+        $('.photo-info').on('click touchstart',function () {$(this).toggleClass('visible');});
 
         //swipe to the next slide when clicking on the yellow arrow at the page footer
-        $('#map').on('click','.page-footer', function () {
+        $('#map').on('click touchstart','.page-footer', function () {
             mySwiper.swipeNext();            
         }); // end page footer scroll to next page click binding
 

@@ -31,7 +31,7 @@ map.setView([center.lat, center.lon], zoom);
 
 
 function onEachFeature_wide(feature, layer) {
-    layer.on('click', function(e) {
+    layer.on('click touchstart', function(e) {
         var zoom = map.getZoom();
         var point = new L.latLng(e.target.feature.properties.coordinates);
         if (zoom <= 8) {
@@ -196,7 +196,7 @@ $(document).ready(function() {
     var currentLayers = layers_wide;
 
     $('.leaflet-control-zoom').addClass('hidden');
-    $('.legend').on('click', 'li', function(e) {
+    $('.legend').on('click touchstart', 'li', function(e) {
         var $target = $(e.target);
         $target.toggleClass('layer-on');
 
