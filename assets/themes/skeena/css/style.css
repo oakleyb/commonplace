@@ -242,8 +242,8 @@ span.of {font-size:.9em;}
   padding:5px;
   margin-left:40px;
   margin-top: 1px;
-  background-color:#FFFFFF;
-  background-color: rgba(255,255,255,.6);
+  background-color:#FFFFFF !important;
+  background-color: rgba(255,255,255,.6) !important;
   background: transparent\9; /* clear current background for ie */
   zoom:1; /* required for the filters */  
   /* For IE 5.5 - 7*/
