@@ -39,7 +39,6 @@ var shownPopup;
             loadIntroImages = window.setTimeout(function () {postLoadImages($('div.swiper-slide'),'intro')},3000),
             loadGalleryImages = window.setTimeout(function () {postLoadImages($('img.postload'),'gallery')},6000);
 
-        $('.swiper-root').backstretch($('.cover-slide').data('img'), {fade:0}); 
 
         function getPages(el){
             var $el = el,
