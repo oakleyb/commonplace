@@ -312,17 +312,10 @@ var shownPopup;
 
                     if (!($('#map').children('.page-footer').length && ($.browser.msie && $.browser.version >= 10))) {
                         $('#map').append('<div class="map-arrow page-footer"><a href="#"><i class="icon-chevron-down"></i></a></div>')
-                        $('.map-arrow').off('click touchstart').on('click touchstart', function (e) {
-                            console.log('swipe');
-                            e.preventDefault();
-                            mySwiper.swipeNext();            
-                        }); // end page footer scroll to next page click binding
+                        
                     } else if (!($('#skeena-map').children('.page-footer').length && ! ($.browser.msie && $.browser.version >= 10))) {
                         $('#skeena-map').append('<div class="page-footer map-arrow"><a href="#"><i class="icon-chevron-down"></i></a></div>')
-                        $('.map-arrow').off('click touchstart').on('click touchstart', function (e) {
-                            e.preventDefault();
-                            mySwiper.swipeNext();            
-                        }); // end page footer scroll to next page click binding
+                         // end page footer scroll to next page click binding
                     }
                     $('.layer-on').each(function (i, layer) {
                         currentLayers[$(layer).data('layer')].addTo(map);
@@ -350,7 +343,11 @@ var shownPopup;
         });  //end init block for main vertical swiper         
         
 //Begin main event bindings
-
+        $('body').on('click', '.page-footer a', function (e) {
+            e.preventDefault();
+            console.log('swipe');
+            mySwiper.swipeNext();            
+        });
         // Activate left/right arrows that we've placed on top of all horizontally enabled slides
         $('.navarrows a, .next-story').on('click',function (e){
             if (window.animating) return;
@@ -631,9 +628,9 @@ var shownPopup;
         $('.photo-info').on('click touchstart',function () {$(this).toggleClass('visible');});
 
         //swipe to the next slide when clicking on the yellow arrow at the page footer
-        $('.page-footer').on('click touchstart', function () {
-            mySwiper.swipeNext();            
-        }); // end page footer scroll to next page click binding
+        // $('.page-footer').on('click touchstart', function () {
+        //     mySwiper.swipeNext();            
+        // }); // end page footer scroll to next page click binding
 
 
 
