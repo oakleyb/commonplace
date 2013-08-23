@@ -377,7 +377,7 @@ tagline: Supporting tagline
 <!-- <div id="map">
       <div class="swiper-slide marker-slide" id="skeena-map" data-hash="skeena-map">
 </div> -->
-<div id="map">
+<div id="map" class="hide-map">
   <div class="swiper-container swiper-root">
 
   <div class="swiper-wrapper">
@@ -390,7 +390,8 @@ tagline: Supporting tagline
         <h1>{{ page.title }}</h1>
       </div>
        <div class="page-footer">
-         <a href="#">
+        <img src="{{ASSET_PATH}}skeena/img/ajax-loader.gif"/>
+         <a href="#" class="hidden">
            <i class="icon-chevron-down"></i>
          </a>
        </div>
@@ -439,7 +440,7 @@ tagline: Supporting tagline
 
                   <div class="swiper-container gallery" id="voices-gallery">
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide light">
+                      <div class="swiper-slide light" >
                           <div class="sub-toc-wrapper gallery-slide">
                           {% for post in site.tags.voices reversed %}
                             <div class="sub-toc-item" style="width:19%;">
@@ -504,7 +505,7 @@ tagline: Supporting tagline
           <div class="swiper-slide" data-img="{{ASSET_PATH}}skeena/img/article_openers/{{ post.story-img }}" data-hash="{{post.url | replace:'/',''}}" id="{{post.url | replace:'/',''}}">
             <div class="story-header">
               {% if post.author %}
-              <h3>{{ post.author }}</h3>      
+              <h3 class="hidden">{{ post.author }}</h3>      
               <hr/>
               {% endif %}
               <h1>{{ post.title }}</h1>

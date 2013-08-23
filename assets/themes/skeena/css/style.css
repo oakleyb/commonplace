@@ -294,7 +294,9 @@ span.of {font-size:.9em;}
 .hidden {
   opacity: 0;
 }
-
+.hide-map .leaflet-map-pane {
+    opacity: 0 !important;
+}
 .navbar .nav>li>a, .no-touch .navbar .nav>li>a:hover, .navbar .nav>li>a:hover, .navbar .nav>li>a:active, .navbar .nav>li>a:focus {color:white;}
 .dark .navbar .nav>li>a, .no-touch .dark .navbar .nav>li>a:hover, .dark .navbar .nav>li>a:active , .dark .navbar .nav>li>a:focus {color:#333333;}
 
@@ -472,6 +474,10 @@ span.of {font-size:.9em;}
 }
 
 .the-team > .row {margin-bottom:15px;}
+
+.hidden {
+  display: none; !important;
+}
 
 .root-container {
   /*background: url({{ ASSET_PATH }}skeena/img/cover.jpg) no-repeat center;*/

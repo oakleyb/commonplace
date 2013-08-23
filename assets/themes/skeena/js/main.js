@@ -631,19 +631,25 @@ var shownPopup;
         // $('.page-footer').on('click touchstart', function () {
         //     mySwiper.swipeNext();            
         // }); // end page footer scroll to next page click binding
-
-
-
+        
         // manage hash changes
         if (originalHash) {
             mySwiper.swipeTo($(originalHash).index());    
         }
 
+
+
+   
         // init the audio player for voices
         audiojs.events.ready(function() {
             var as = audiojs.createAll();
         });
+        $('h3.hidden').removeClass('hidden');
+        $('.hide-map').removeClass('hide-map');
+        $('.cover-slide .page-footer').find('img').addClass('hidden');
 
+
+        
     }); //end document.ready function
     
 
