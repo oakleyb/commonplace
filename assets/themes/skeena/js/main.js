@@ -159,7 +159,9 @@ var shownPopup;
 
                 // update the background image
                 if (backgroundImage && currentBackgroundImage !== backgroundImage && !preserveBodyBackground) {
+                    
                     $('.swiper-root').backstretch(backgroundImage, {fade:450}); 
+                    
                     if ($('.backstretch',$('.swiper-root')).length>2) $('.backstretch:lt(1)',$('.swiper-root')).remove();                   
                 } else if (! backgroundImage && !preserveBodyBackground) {
                     $('.swiper-root').children('.backstretch').remove();
@@ -645,9 +647,10 @@ var shownPopup;
             var as = audiojs.createAll();
         });
         $('h3.hidden').removeClass('hidden');
-        $('.hide-map').removeClass('hide-map');
-        $('.cover-slide .page-footer').find('img').addClass('hidden');
 
+        $('.hide-map').removeClass('hide-map');
+        $('.cover-slide .page-footer').find('a').removeClass('hidden');
+        $('.loader-gif').addClass('hidden');
 
         
     }); //end document.ready function

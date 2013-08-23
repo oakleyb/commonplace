@@ -295,7 +295,7 @@ span.of {font-size:.9em;}
   opacity: 0;
 }
 .hide-map .leaflet-map-pane {
-    opacity: 0 !important;
+    display: none !important;
 }
 .navbar .nav>li>a, .no-touch .navbar .nav>li>a:hover, .navbar .nav>li>a:hover, .navbar .nav>li>a:active, .navbar .nav>li>a:focus {color:white;}
 .dark .navbar .nav>li>a, .no-touch .dark .navbar .nav>li>a:hover, .dark .navbar .nav>li>a:active , .dark .navbar .nav>li>a:focus {color:#333333;}
