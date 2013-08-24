@@ -646,7 +646,7 @@ var shownPopup;
         audiojs.events.ready(function() {
             var as = audiojs.createAll();
         });
-        $('h3.hidden').removeClass('hidden');
+        $('.story-header .hidden').removeClass('hidden');
 
         $('.hide-map').removeClass('hide-map');
         $('.cover-slide .page-footer').find('a').removeClass('hidden');
