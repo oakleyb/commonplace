@@ -8,7 +8,7 @@ issue: Skeena
 path: Cassiar slideshow
 slideshow:
 - img: Cassiar-Cannery---Ewen-_Mac_-and-Kay-Macmillan-with-their-da.jpg
-  caption: The beloved former owners of the cannery, Mac and Kay MacMillan, with their daughter, Ewen. Courtesy of Cassiar Cannery. 
+  caption: The beloved former owners of the cannery, Mac and Kay MacMillan, with their daughter, Leslie. Courtesy of Cassiar Cannery. 
 - img: Cassiar-Cannery---Herring-everywhere.jpg
   caption: Herring spill out of the bins at the cannery at its peak. Courtesy of Prince Rupert District Regional Archive.
 - img: Cassiar-Cannery---Mark-Bell-framing-the-cabin-extension-on-t.jpg
