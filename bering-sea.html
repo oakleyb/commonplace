@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="">
+    
+    <head>
+
+        <meta charset="utf-8">
+        <title>
+            The Bering Sea
+        </title>
+        
+        <meta name="author" content="Name Lastname">
+        <!-- Enable responsive viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- Maybe we don't want these??? -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:image" content="http://www.commonplacemagazine.org/assets/themes/skeena/img/icon-facebook.gif" />
+        <meta property="og:url" content="http://www.commonplacemagazine.org" />
+        <meta property="og:image" content="http://www.commonplacemagazine.org/assets/themes/skeena/img/icon-facebook.gif" />
+        <link rel="image_src" 
+              type="image/jpeg" 
+              href="http://www.commonplacemagazine.org/assets/themes/skeena/img/icon-facebook.gif" />
+
+        <!-- Check for Mobile Client -->
+        <script type="text/javascript">
+            if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                window.location = "/mobile.html";
+            }
+        </script>
+
+        <script>
+        // test for handheld device
+
+        (function(a,b){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))window.location=b})(navigator.userAgent||navigator.vendor||window.opera,"/mobile.html");
+
+        //test for supported desktop browser
+        var N= navigator.appName, ua= navigator.userAgent, tem,ver,fail=false;
+        var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+        if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+        M= M? [M[1], M[2]]: [N, navigator.appVersion,'-?'];
+        N=M[0];
+        ver=M[1].split('.')[0];
+        switch (N.toLowerCase()) {
+            case "chrome": fail = (parseInt(ver)<28) ? true : false; break;
+            case "msie": fail = (parseInt(ver)<10) ? true : false; break;
+            case "opera": fail = (parseInt(ver)<5) ? true : false; break;
+            case "firefox": fail = (parseInt(ver)<22) ? true : false; break;
+        }
+        if (fail) {
+            
+            window.location='/unsupported.html';
+            
+        }
+        
+        </script>
+
+
+
+        <!-- Le styles -->
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+        <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="/assets/themes/skeena/css/idangerous.swiper.css">
+        <!-- <link rel="stylesheet" href="/assets/themes/skeena/css/idangerous.swiper.scrollbar.css"> -->
+        <link rel="stylesheet" href="/assets/themes/skeena/css/textify.css">
+
+        <link href='//api.tiles.mapbox.com/mapbox.js/v1.2.0/mapbox.css' rel='stylesheet' />
+        <!--[if lte IE 8]>
+          <link href='//api.tiles.mapbox.com/mapbox.js/v1.2.0/mapbox.ie.css' rel='stylesheet' >
+        <![endif]-->
+        <link href="/assets/themes/skeena/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+        <link href="/assets/themes/skeena/css/default.css?body=1" rel="stylesheet" type="text/css" media="all">
+        <!-- Le fav and touch icons -->
+
+        <!-- Update these with your own images <link rel="shortcut icon" href="images/favicon.ico">
+            <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        -->
+
+  <!-- MODERNIZR, to fix some touch-based isses on iPad-->
+
+
+<script src="http://modernizr.com/downloads/modernizr-latest.js"></script> 
+        <!-- atom & rss feed -->
+        <link href="/atom.xml" type="application/atom+xml"
+        rel="alternate" title="Sitewide ATOM Feed">
+        <link href="/rss.xml" type="application/rss+xml"
+        rel="alternate" title="Sitewide RSS Feed">
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="content">
+                
+
+<div class="row-fluid section root-container">
+    
+<div style="display:none;" id="puimage"></div>
+<div class="masthead hidden toc-section">
+  <div class="navbar">
+    <div>
+      <div class="container">
+        <ul class="nav">
+          <li><a href="#"><em>01</em>cp: Bering Sea</a></li>
+          <li><a href="#" id="connect"><em>02</em> Connect</a></li>
+          <li><a href="#"><h2 style="margin:0;">commonplace</h2></a></li>
+          <li><a href="#" id="about"><em>03</em> About</a></li>
+          <li><a href="#" id="issues"><em>04</em> Issues</a></li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- /.navbar -->
+</div>
+
+
+<!-- TABLE OF CONTENTS CONTENT -->
+
+
+
+<!-- CONNECT WITH US TOC CONTENT -->
+<div style="display: none" id="connect-content">
+  <div class="popover-close">close</div>
+  <div class="container connect-container">
+    <div class="row">
+      <div class="span2">
+      <p class="toc-sidebar">Connect With Commonplace</p>
+      </div>
+      <div class="span8 offset1">
+        <div class="row">
+          <div class="span11 connect-content">
+            <div class="row">
+              <div class="span6">
+                <div class="row">
+                  <div class="span3"><img src="/assets/themes/skeena/img/email_grey.png"></div>
+                  <div class="span7">
+                    <p class="large">Subscribe</p>
+                    <p>Sign up for Commonplace news via email.</p>
+                    <!-- form pulled directly from commonplace splash site -->
+                    <form action="http://ecotrust.us5.list-manage.com/subscribe/post?u=2263c982fe55ebaa023041b8b&amp;id=0ca3d50af5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL" style="font-size:25px; display:none;">your email address here</label><br>
+                      <input placeholder="Sign up for Commonplace emails here" required="" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="-webkit-border-radius: 2px; border-radius: 2px;-moz-border-radius:2px;">
+                        <input style="background-color: #f5f5f5; border: 1px solid #CCC;-webkit-border-radius: 2px; border-radius: 2px;-moz-border-radius:2px;" type="submit" value="subscribe »" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    </div>
+                    <div class="mc-field-group input-group">
+                        <ul style="display:none;"><li><input type="checkbox" value="1" name="group[2281][1]" id="mce-group[2281]-2281-0"><label for="mce-group[2281]-2281-0">Ecotrust eNews</label></li>
+                    <li><input type="checkbox" value="2" name="group[2281][2]" id="mce-group[2281]-2281-1"><label for="mce-group[2281]-2281-1">Edible Portland Newsletter</label></li>
+                    <li><input type="checkbox" value="4" name="group[2281][4]" id="mce-group[2281]-2281-2"><label for="mce-group[2281]-2281-2">Farm to Preschool Newsletter</label></li>
+                    <li><input type="checkbox" value="8" name="group[2281][8]" id="mce-group[2281]-2281-3"><label for="mce-group[2281]-2281-3">Ecotrust Indigenous Affairs Updates</label></li>
+                    <li><input type="checkbox" value="32" name="group[2281][32]" id="mce-group[2281]-2281-4"><label for="mce-group[2281]-2281-4">Community Fisheries Network Newsletter</label></li>
+                    <li><input type="checkbox" value="64" name="group[2281][64]" id="mce-group[2281]-2281-5" checked="checked"><label for="mce-group[2281]-2281-5">Commonplace Magazine Updates</label></li>
+                    </ul>
+                    </div>
+                      <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+              <div class="span6">
+                <div class="row">
+                  <div class="span3"><img src="/assets/themes/skeena/img/twitter_grey.png"></div>
+                  <div class="span7"><p class="large">Follow us</p><p>We’re on Twitter <a href="https://twitter.com/Commonplacemag" target="_blank">@Commonplacemag</a></p></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span6">
+                <div class="row">
+                  <div class="span3"><img src="/assets/themes/skeena/img/facebook_grey.png"></div>
+                  <div class="span7"><p class="large">Join us</p><p>on <a href="https://www.facebook.com/commonplacemagazine" target="_blank">Facebook</a>.</p></div>
+                </div>
+              </div>
+              <div class="span6">
+                <div class="row">
+                  <div class="span3"><img src="/assets/themes/skeena/img/map_voice_grey.png"></div>
+                  <div class="span7"><div class="story" data-story="#your-voice" style="display:inline; padding:0;text-align:left;margin:0;width:auto;"><p class="large">Contribute</p><p>to <a href="/your-voice">Your Voice</a> in the magazine.</p></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span1">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT US TOC CONTENT -->
+<div style="display: none" id="about-content">
+  <div class="popover-close">close</div>
+  <div class="container about-container">
+    <div class="row">
+      <div class="span3">
+      <p class="toc-sidebar">About Commonplace</p>
+      </div>
+      <div class="span5 about-content">
+        <p>Commonplace is a publication of <a href="http://www.ecotrust.org">Ecotrust</a> focused on stories of home. Our hope is to create places for connection, for mapping out new understandings of what is common across states, nations, and human nature. We look forward to hearing your stories about the places you live, your experiences of the stories we publish, and your ideas about how to evolve Commonplace in future issues. Share your thoughts on <a href="http://www.facebook.com/commonplacemagazine">Facebook</a>, <a href="https://twitter.com/Commonplacemag">Twitter</a>, or write to us at <a href="mailto:info@commonplacemagazine.org">info@commonplacemagazine.org</a></p>
+      </div>
+      <div class="span4 about-masthead">
+        <div class="row">
+          <div class="span6"><img src="assets/themes/skeena/img/contributor-headshots/Spencer.jpg" height="100" width="100" class="img-circle"></div>
+          <div class="span6">
+            <h5>Publisher</h5>
+            <p>Spencer B. Beebe</p>
+            <p class="black">Founder &amp; Chair, Ecotrust</p>
+          </div>
+        </div>
+
+        <div class="row break-line">
+          <div class="span6"><img src="assets/themes/skeena/img/contributor-headshots/carolyn.jpg" height="100" width="100" class="img-circle"></div>
+          <div class="span6">
+            <h5>Editor</h5>
+            <p>Carolyn Holland</p>
+            <p class="black">cholland@ecotrust.org</p>
+          </div>
+        </div>
+      </div> <!-- end masthead column -->
+    </div> <!-- end first row inside the content container -->
+    <div class="row">
+
+      <div class="span3">
+        <p class="toc-sidebar">The Team</p>
+      </div>
+
+      <div class="span9 the-team"> <!-- The Team cell -->
+        <div class="row"> 
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/oakley_brooks.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Managing Editor</h5>
+                <p>Oakley Brooks</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/jim_norton.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Contributing Editor</h5>
+                <p>Jim Norton</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/sam_beebe.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Contributing Editor</h5>
+                <p>Sam Beebe</p>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end team sub row -->
+        <div class="row"> 
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/emma_deans.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Contributing Editor</h5>
+                <p>Emma Deans</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/lola.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Contributing Editor</h5>
+                <p>Lola Milholland</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/sarah_cline.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Design Director</h5>
+                <p>Sarah Magrish Cline</p>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end team sub row -->
+        <div class="row"> 
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/edwin.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Developer</h5>
+                <p>Edwin Knuth</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/lucas-balzer.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Developer</h5>
+                <p>Lucas Balzer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div class="row">
+              <div class="span3"><img src="assets/themes/skeena/img/contributor-headshots/Sabin.jpg" height="100" width="100" class="img-circle"></div>
+              <div class="span7">
+                <h5>Editorial Intern</h5>
+                <p>Sabin Ray</p>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end team sub row -->
+
+      </div> <!-- end The Team cell -->
+    </div> <!-- end The Team row -->
+
+
+  </div> <!-- end about content container -->
+</div> <!-- end about content wrapper div -->
+
+
+<!-- ISSUES TOC CONTENT -->
+<div style="display: none" id="issues-content">
+  <div class="popover-close">close</div>
+  <div class="container issues-container">
+    <div class="row">
+      <div class="span2">
+      <p class="toc-sidebar">Commonplace Issues</p>
+      </div>
+      <div class="span8 offset1">
+        <div class="row">
+          <div class="span6">
+            <p class="issue-title intro-inline">Skeena Voices</p>
+            <p class="issue-number blue"><span class="schoolbook">Issue</span> <span class="intro">01</span></p>
+            <p>One of North America’s last great salmon watersheds faces an unprecedented&mdash;almost mythical&mdash;round of industrial development. A collection of essays, slideshows and audio vignettes examines the history and resolve of people in this unique place, facing challenges all too common. <span class="schoolbook">Published Summer 2013</span></p>
+          </div>
+          <div class="span6">
+            <p class="issue-title intro-inline">New Pioneers in Oregon Country</p>
+            <p class="issue-number blue"><span class="schoolbook">Issue</span> <span class="intro">02</span></p>
+            <p>Oregon Country, where the original pioneers once landed for good soils, is now undergoing a revolution in natural resource businesses that is reinvigorating legacy farming, fishing and timber economies desperately in need of change. This issue will look at pioneers who are boldly experimenting to reshape landscapes, urban consumption and the natural systems we need to live well. <span class="schoolbook">Coming Winter 2014</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- End ISSUES CONTENT wrapper -->
+
+
+
+
+<!-- <div id="map">
+      <div class="swiper-slide marker-slide" id="skeena-map" data-hash="skeena-map">
+</div> -->
+<div id="map" class="hide-map">
+  <div class="swiper-container swiper-root">
+
+  <div class="swiper-wrapper">
+    <!--First Slide-->
+
+
+
+      <!--Second Slide-->
+      
+
+        
+
+
+         <!-- end the block that inserts voices into the post stream -->
+
+
+          
+          <div class="swiper-slide" data-img="/assets/themes/skeena/img/article_openers/bering-sea.jpg" data-hash="bering-sea" id="bering-sea">
+            <div class="story-header">
+              
+              <h3>commonplace</h3>      
+              <hr/>
+              
+              <h1>The Bering Sea</h1>
+            </div>
+
+            
+              <div class="photo-info">
+                <div class="caption-content">
+                  Near Stuart River. Photo by Neil Ever Osborne
+                </div>
+              </div>
+            
+            
+            <div class="page-footer">
+              <a href="#">
+                <i class="icon-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+          
+
+          <!--Third Slide-->
+          
+          <div class="swiper-slide first-page essay"
+                 data-img="/assets/themes/skeena/img/article_openers/bering-sea.jpg" 
+                data-hash="bering-sea"
+                >
+            <div class="page">
+
+              <div class="navarrows hidden-phone">
+                <div class="pull-left"><a href="#" class="left-arrow">&nbsp;</a></div>
+                <div class="pull-right"><a href="#" class="right-arrow">&nbsp;</a><div class="next-story avenir-light">Next:<br><span class="next-story-name intro blue"></span></div></div>
+              </div> <!-- end nav arrows container -->
+
+              <div class="span12 page-wrapper paper-bg">
+
+                
+                <div class="story-sidebar">
+
+              
+                  <div class="sidebar-header">
+                    <p class="title" style="font-size:.8em;">stay posted on this story</p>
+                    
+                    <p>Click <em>connect</em> above &mdash; subscribe to our mail list, or follow us on Twitter or Facebook&hellip;</p>
+                    
+                  </div>
+                  <div class="welcome-gallery-pagination general-pagination"></div>
+                </div>
+
+                
+                
+                <div class="page-content short-post post">
+                
+                
+                <div class="columns">
+                
+                  <p>The  Bering Sea is one of the most biologically rich areas on Earth. Nourished by  strong upwelling and sea ice movements, the region is the foraging and breeding  ground for northern fur seals, gray whales, bearded seals, walrus and eiders,  among others.&nbsp; Native communities have hunted and fished the sea for over  10,000 years, subsisting on the region&rsquo;s immense natural wealth.&nbsp; Today,  half of American seafood is harvested here. </p>
+<p><strong>So  what&rsquo;s the catch?</strong></p>
+<p>Fur  seal populations are on a 40-year steady decline. Fishing gear has disturbed  habitat all over the ocean&rsquo;s bottom. And, as the gateway to the Arctic, the  Bering is vulnerable to a renewed influx of petroleum exploration and mining. </p>
+<p>Native  people have been on every side of lucrative fishing trades and other resource  booms that have colored the sea since Vitus Bering, the Danish admiral in  Russian employ first explored it in 1728. Some Native entrepreneurs have found  substantial profits. Other local Aleuts have been, literally, slave laborers.  Today, though, Native communities are by-and-large watching immense riches flow  out of the region, with <a href="http://www.nytimes.com/2013/06/19/us/spoils-of-the-sea-elude-many-in-an-alaska-antipoverty-plan.html?_r=0">little to show for it</a>. </p>
+<p>In  response, Native leaders are framing up an alternative path for sustaining  communities and the greater Bering ecosystem.&nbsp; St. George, a small  community in the Pribilof Islands in the center of the Bering, is illustrative:  Home to a fur seal rookery, 2.5 million nesting seabirds, and over 200 species  of migratory birds, island waters also suffer from heavy fishing by the $1  billion pollock industry. The Native community, led by St. George mayor Pat  Pletnikoff is now <a href="http://marineprotectedareas.noaa.gov/pdf/helpful-resources/connections/connections_jul13.pdf">proposing</a> a cultural heritage marine protected area around the island. It would allow  local marine life a chance to replenish and rebuild, and improve the  livelihoods and wellbeing of the Native community.&nbsp; </p>
+<p><a href="http://beringseaelders.org/">Native elders</a> elsewhere throughout the Bering  have <a href="http://www.beringseaelders.org/our-work">mapped</a> traditional  ranges of mammals and other hunting quarry, as well as associated lifeways and  traditional knowledge. They are taking stock of what they have, in the face of  immense changes, as a first step toward asserting Native rights.&nbsp; </p>
+<p>An  upcoming <em>Commonplace </em>issue on the Bering Sea will feature the people and  communities throughout the region who are showing a growing awareness about the  limits of natural wealth and a sense of urgency about protecting and enhancing  what&rsquo;s left. Nothing less than survival is at stake – survival of a people and  the unique place they call home. It&rsquo;s a story both specific to the Bering and  common to us all. Have your own stories to share on the Bering? Email us at <a href="mailto:editor@commonplacemagazine.org">editor@commonplacemagazine.org</a>;  and sign up above to stay posted on this evolving story. </p>
+<p><em>Fur seals. Alaska, Pribilof Islands, St. Paul.<br />
+Photographer: Allen Shimada NOAA NMFS/OST/AMD.</em></p>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+      
+
+        
+      
+
+      
+      
+
+      </div>
+    </div> <!-- end swiper wrapper -->
+    <!-- Scrollbar: -->
+</div>
+<div class="swiper-scrollbar"></div>
+
+  </div> <!-- end swiper container -->
+<!-- </div>  it appears that this div is an orpahn, but i left it here just in case LB-->
+
+
+</div>
+
+            </div>
+        </div>
+        
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43182311-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51d1ef097f96cfdc"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <!--<script>
+    var bootstrapButton = $.fn.button.noConflict();
+    $.fn.bootstrapBtn = bootstrapButton;
+
+    var bootstrapTooltip = $.fn.tooltip.noConflict();
+    $.fn.bootstrapTlp = bootstrapTooltip;
+
+    window.assetPath = '/assets/themes/skeena';
+    </script> -->
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script defer src="/assets/themes/skeena/js/audiojs/audio.min.js"></script>
+    <script defer src="/assets/themes/skeena/js/idangerous.swiper-1.9.4.js"></script>
+    <script defer src="/assets/themes/skeena/js/idangerous.swiper.scrollbar-1.3.js"></script>
+
+
+    <script type="text/javascript" src="/assets/themes/skeena/js/jquery.lightbox_me.js"></script>
+
+
+
+    <script src='//api.tiles.mapbox.com/mapbox.js/v1.2.0/mapbox.js'></script>
+    <script src='/assets/themes/skeena/js/leaflet.iconlabel.js'></script>
+    <script src="/assets/themes/skeena/js/jquery.easing.1.3.js"></script>
+
+
+    <script src="/assets/themes/skeena/js/main.js"></script>
+    <script src="/assets/themes/skeena/places/skeena-places.js"></script>
+    <script src="/assets/themes/skeena/js/map.js"></script>
+    <script>
+    $('document').ready(function (){
+      console.log('here');
+      $('.swiper-root').backstretch($('.swiper-wrapper .swiper-slide').first().data('img'), {fade:450});
+    });
+</script>
+</html>
