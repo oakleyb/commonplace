@@ -88,6 +88,50 @@
         rel="alternate" title="Sitewide ATOM Feed">
         <link href="/rss.xml" type="application/rss+xml"
         rel="alternate" title="Sitewide RSS Feed">
+
+<style>
+div.card {
+  background: #d3d3d3;
+  width: 100%;
+  position: relative;
+  padding: 15px;
+  box-shadow: 0px 3px rgba( 0, 0, 0, 0.2 );
+  font-family: Open Sans;
+  color: #444;
+  font-size: 14px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  }
+  div.card p {
+    margin: 0 0 15px 0;
+  }
+  div.card p.card-title {
+    font-size: 28px;
+  }
+  div.card p.url {
+    border-top: 1px solid #e5e5e5;
+    background-image: url('http://www.eriklindemann.com/wp-content/uploads/2013/05/url.png');
+    background-repeat: no-repeat;
+    padding: 6px 0 0 30px;
+    height: 30px;
+    display: block;
+    margin-bottom: -10px;
+  }
+  div.card p.url a {
+    color: #04bff4;
+    text-decoration: none;
+    top: 4px;
+    width: 385px;
+    display: block;
+    position: relative;
+  }
+  div.card img.full {
+  width: 430px;
+  margin: 0 0 15px -15px;
+  }
+  </style>
+
     </head>
     
     <body>
@@ -133,33 +177,8 @@
             <div class="row">
               <div class="span6">
                 <div class="row">
-                  <div class="span3"><img src="/assets/themes/skeena/img/email_grey.png"></div>
-                  <div class="span7">
-                    <p class="large">Subscribe</p>
-                    <p>Sign up for Commonplace news via email.</p>
-                    <!-- form pulled directly from commonplace splash site -->
-                    <form action="http://ecotrust.us5.list-manage.com/subscribe/post?u=2263c982fe55ebaa023041b8b&amp;id=0ca3d50af5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
-                    <div class="mc-field-group">
-                      <label for="mce-EMAIL" style="font-size:25px; display:none;">your email address here</label><br>
-                      <input placeholder="Sign up for Commonplace emails here" required="" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="-webkit-border-radius: 2px; border-radius: 2px;-moz-border-radius:2px;">
-                        <input style="background-color: #f5f5f5; border: 1px solid #CCC;-webkit-border-radius: 2px; border-radius: 2px;-moz-border-radius:2px;" type="submit" value="subscribe »" name="subscribe" id="mc-embedded-subscribe" class="button">
-                    </div>
-                    <div class="mc-field-group input-group">
-                        <ul style="display:none;"><li><input type="checkbox" value="1" name="group[2281][1]" id="mce-group[2281]-2281-0"><label for="mce-group[2281]-2281-0">Ecotrust eNews</label></li>
-                    <li><input type="checkbox" value="2" name="group[2281][2]" id="mce-group[2281]-2281-1"><label for="mce-group[2281]-2281-1">Edible Portland Newsletter</label></li>
-                    <li><input type="checkbox" value="4" name="group[2281][4]" id="mce-group[2281]-2281-2"><label for="mce-group[2281]-2281-2">Farm to Preschool Newsletter</label></li>
-                    <li><input type="checkbox" value="8" name="group[2281][8]" id="mce-group[2281]-2281-3"><label for="mce-group[2281]-2281-3">Ecotrust Indigenous Affairs Updates</label></li>
-                    <li><input type="checkbox" value="32" name="group[2281][32]" id="mce-group[2281]-2281-4"><label for="mce-group[2281]-2281-4">Community Fisheries Network Newsletter</label></li>
-                    <li><input type="checkbox" value="64" name="group[2281][64]" id="mce-group[2281]-2281-5" checked="checked"><label for="mce-group[2281]-2281-5">Commonplace Magazine Updates</label></li>
-                    </ul>
-                    </div>
-                      <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                      </div>
-                    </form>
-
-                  </div>
+                  <div class="span3"><img src="/assets/themes/skeena/img/facebook_grey.png"></div>
+                  <div class="span7"><p class="large">Join us</p><p>on <a href="https://www.facebook.com/commonplacemagazine" target="_blank">Facebook</a>.</p></div>
                 </div>
               </div>
               <div class="span6">
@@ -172,8 +191,8 @@
             <div class="row">
               <div class="span6">
                 <div class="row">
-                  <div class="span3"><img src="/assets/themes/skeena/img/facebook_grey.png"></div>
-                  <div class="span7"><p class="large">Join us</p><p>on <a href="https://www.facebook.com/commonplacemagazine" target="_blank">Facebook</a>.</p></div>
+                  <div class="span3"></div>
+                  <div class="span7"></div>
                 </div>
               </div>
               <div class="span6">
@@ -397,9 +416,10 @@
             </div>
 
             
-              <div class="photo-info">
-                <div class="caption-content">
-                  Near Stuart River. Photo by Neil Ever Osborne
+              <div class="photo-info"style="height:58px;">
+                <div class="caption-content" style="height:57px;">
+                  Fur seals. Alaska, Pribilof Islands, St. Paul.<br />
+                  Photographer: Allen Shimada NOAA NMFS/OST/AMD.
                 </div>
               </div>
             
@@ -434,7 +454,7 @@
                   <div class="sidebar-header">
                     <p class="title" style="font-size:.8em;">stay posted on this story</p>
                     
-                    <p>Click <em>connect</em> above &mdash; subscribe to our mail list, or follow us on Twitter or Facebook&hellip;</p>
+                    <p>Click <em>connect</em> above to follow us on Twitter or Facebook&hellip;</p>
                     
                   </div>
                   <div class="welcome-gallery-pagination general-pagination"></div>
@@ -442,20 +462,47 @@
 
                 
                 
-                <div class="page-content short-post post">
+                <div class="page-content short-post post" style="overflow-y:scroll;">
                 
                 
-                <div class="columns">
+                <div class="column">
                 
                   <p>The  Bering Sea is one of the most biologically rich areas on Earth. Nourished by  strong upwelling and sea ice movements, the region is the foraging and breeding  ground for northern fur seals, gray whales, bearded seals, walrus and eiders,  among others.&nbsp; Native communities have hunted and fished the sea for over  10,000 years, subsisting on the region&rsquo;s immense natural wealth.&nbsp; Today,  half of American seafood is harvested here. </p>
-<p><strong>So  what&rsquo;s the catch?</strong></p>
+
+                  <div style="padding-left:25%; padding-right:32%; margin-bottom:25px;">
+                    <div class="card"><p style="font-family: CenturySchoolbookBT-Italic;font-size:1.6em; margin:0;padding:0">Stay posted on this story.</p>
+                      <!-- form pulled directly from commonplace splash site -->
+                    <form action="http://ecotrust.us5.list-manage.com/subscribe/post?u=2263c982fe55ebaa023041b8b&amp;id=0ca3d50af5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="" style="margin:0;">
+                      <div class="mc-field-group">
+                        <label for="mce-EMAIL" style="font-size:25px; display:none;">Enter your email here</label><br>
+                        <input placeholder="Enter your email here" required="" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="-webkit-border-radius: 2px; border-radius: 2px;-moz-border-radius:2px;">
+                          <input style="background: url(/assets/themes/skeena/img/go_arrow_dark.png) no-repeat left top; border:none; margin-top: -10px;height: 30px;width:30px;text-indent:-10000px" type="submit" value="subscribe »" name="subscribe" id="mc-embedded-subscribe" class="button">
+                      </div>
+                      <div class="mc-field-group input-group">
+                        <ul style="display:none;">
+                          <li><input type="checkbox" value="1" name="group[2281][1]" id="mce-group[2281]-2281-0"><label for="mce-group[2281]-2281-0">Ecotrust eNews</label></li>
+                          <li><input type="checkbox" value="2" name="group[2281][2]" id="mce-group[2281]-2281-1"><label for="mce-group[2281]-2281-1">Edible Portland Newsletter</label></li>
+                          <li><input type="checkbox" value="4" name="group[2281][4]" id="mce-group[2281]-2281-2"><label for="mce-group[2281]-2281-2">Farm to Preschool Newsletter</label></li>
+                          <li><input type="checkbox" value="8" name="group[2281][8]" id="mce-group[2281]-2281-3"><label for="mce-group[2281]-2281-3">Ecotrust Indigenous Affairs Updates</label></li>
+                          <li><input type="checkbox" value="32" name="group[2281][32]" id="mce-group[2281]-2281-4"><label for="mce-group[2281]-2281-4">Community Fisheries Network Newsletter</label></li>
+                          <li><input type="checkbox" value="64" name="group[2281][64]" id="mce-group[2281]-2281-5"><label for="mce-group[2281]-2281-5">Commonplace Magazine Updates</label></li>
+                          <li><input type="checkbox" value="256" name="group[2281][256]" id="mce-group[2281]-2281-6"><label for="mce-group[2281]-2281-6">E3 Newsletter</label></li>
+                          <li><input type="checkbox" value="1024" name="group[2281][1024]" id="mce-group[2281]-2281-7" checked="checked"><label for="mce-group[2281]-2281-7">Bering Voices Newsletter</label></li>
+                        </ul>
+                      </div>
+                      <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                      </div>
+                    </form>
+                  </div></div>
+
+<p><strong style="color:#333;">So  what&rsquo;s the catch?</strong></p>
 <p>Fur  seal populations are on a 40-year steady decline. Fishing gear has disturbed  habitat all over the ocean&rsquo;s bottom. And, as the gateway to the Arctic, the  Bering is vulnerable to a renewed influx of petroleum exploration and mining. </p>
-<p>Native  people have been on every side of lucrative fishing trades and other resource  booms that have colored the sea since Vitus Bering, the Danish admiral in  Russian employ first explored it in 1728. Some Native entrepreneurs have found  substantial profits. Other local Aleuts have been, literally, slave laborers.  Today, though, Native communities are by-and-large watching immense riches flow  out of the region, with <a href="http://www.nytimes.com/2013/06/19/us/spoils-of-the-sea-elude-many-in-an-alaska-antipoverty-plan.html?_r=0">little to show for it</a>. </p>
-<p>In  response, Native leaders are framing up an alternative path for sustaining  communities and the greater Bering ecosystem.&nbsp; St. George, a small  community in the Pribilof Islands in the center of the Bering, is illustrative:  Home to a fur seal rookery, 2.5 million nesting seabirds, and over 200 species  of migratory birds, island waters also suffer from heavy fishing by the $1  billion pollock industry. The Native community, led by St. George mayor Pat  Pletnikoff is now <a href="http://marineprotectedareas.noaa.gov/pdf/helpful-resources/connections/connections_jul13.pdf">proposing</a> a cultural heritage marine protected area around the island. It would allow  local marine life a chance to replenish and rebuild, and improve the  livelihoods and wellbeing of the Native community.&nbsp; </p>
-<p><a href="http://beringseaelders.org/">Native elders</a> elsewhere throughout the Bering  have <a href="http://www.beringseaelders.org/our-work">mapped</a> traditional  ranges of mammals and other hunting quarry, as well as associated lifeways and  traditional knowledge. They are taking stock of what they have, in the face of  immense changes, as a first step toward asserting Native rights.&nbsp; </p>
-<p>An  upcoming <em>Commonplace </em>issue on the Bering Sea will feature the people and  communities throughout the region who are showing a growing awareness about the  limits of natural wealth and a sense of urgency about protecting and enhancing  what&rsquo;s left. Nothing less than survival is at stake – survival of a people and  the unique place they call home. It&rsquo;s a story both specific to the Bering and  common to us all. Have your own stories to share on the Bering? Email us at <a href="mailto:editor@commonplacemagazine.org">editor@commonplacemagazine.org</a>;  and sign up above to stay posted on this evolving story. </p>
-<p><em>Fur seals. Alaska, Pribilof Islands, St. Paul.<br />
-Photographer: Allen Shimada NOAA NMFS/OST/AMD.</em></p>
+<p>Native  people have been on every side of lucrative fishing trades and other resource  booms that have colored the sea since Vitus Bering, the Danish admiral in  Russian employ first explored it in 1728. Some Native entrepreneurs have found  substantial profits. Other local Aleuts have been, literally, slave laborers.  Today, though, Native communities are by-and-large watching immense riches flow  out of the region, with <a target="_blank" href="http://www.nytimes.com/2013/06/19/us/spoils-of-the-sea-elude-many-in-an-alaska-antipoverty-plan.html?_r=0">little to show for it</a>. </p>
+<p>In  response, Native leaders are framing up an alternative path for sustaining  communities and the greater Bering ecosystem.&nbsp; St. George, a small  community in the Pribilof Islands in the center of the Bering, is illustrative:  Home to a fur seal rookery, 2.5 million nesting seabirds, and over 200 species  of migratory birds, island waters also suffer from heavy fishing by the $1  billion pollock industry. The Native community, led by St. George mayor Pat  Pletnikoff is now <a target="_blank" href="http://marineprotectedareas.noaa.gov/pdf/helpful-resources/connections/connections_jul13.pdf">proposing</a> a cultural heritage marine protected area around the island. It would allow  local marine life a chance to replenish and rebuild, and improve the  livelihoods and wellbeing of the Native community.&nbsp; </p>
+<p><a target="_blank" href="http://beringseaelders.org/">Native elders</a> elsewhere throughout the Bering  have <a target="_blank" href="http://www.beringseaelders.org/our-work">mapped</a> traditional  ranges of mammals and other hunting quarry, as well as associated lifeways and  traditional knowledge. They are taking stock of what they have, in the face of  immense changes, as a first step toward asserting Native rights.&nbsp; </p>
+<p>An  upcoming <em>Commonplace </em>issue on the Bering Sea will feature the people and  communities throughout the region who are showing a growing awareness about the  limits of natural wealth and a sense of urgency about protecting and enhancing  what&rsquo;s left. Nothing less than survival is at stake – survival of a people and  the unique place they call home. It&rsquo;s a story both specific to the Bering and  common to us all. Have your own stories to share on the Bering? Email us at <a target="_blank" href="mailto:editor@commonplacemagazine.org">editor@commonplacemagazine.org</a>;  and sign up above to stay posted on this evolving story. </p>
                 </div>
                 </div>
                 
@@ -536,7 +583,6 @@ Photographer: Allen Shimada NOAA NMFS/OST/AMD.</em></p>
     <script src="/assets/themes/skeena/js/map.js"></script>
     <script>
     $('document').ready(function (){
-      console.log('here');
       $('.swiper-root').backstretch($('.swiper-wrapper .swiper-slide').first().data('img'), {fade:450});
     });
 </script>
